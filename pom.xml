@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.youkol</groupId>
+    <artifactId>youkol-parent</artifactId>
+    <version>1.1.0</version>
+  </parent>
+
+  <groupId>com.youkol.scribejava</groupId>
+  <artifactId>youkol-support-scribejava</artifactId>
+  <version>1.0.9-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>youkol-support-scribejava</name>
+  <url>https://github.com/youkol/youkol-support-scribejava</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git://github.com/youkol/youkol-support-scribejava.git</connection>
+    <developerConnection>scm:git:git@github.com:youkol/youkol-support-scribejava.git</developerConnection>
+    <url>https://github.com/youkol/youkol-support-scribejava</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <properties>
+    <scribejava.version>6.0.0</scribejava.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.scribejava</groupId>
+      <artifactId>scribejava-apis</artifactId>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.scribejava</groupId>
+        <artifactId>scribejava-core</artifactId>
+        <version>${scribejava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.scribejava</groupId>
+        <artifactId>scribejava-apis</artifactId>
+        <version>${scribejava.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

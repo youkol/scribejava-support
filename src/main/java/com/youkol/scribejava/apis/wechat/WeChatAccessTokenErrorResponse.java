@@ -21,13 +21,13 @@ import com.github.scribejava.core.exceptions.OAuthException;
 
 /**
  * Non standard WeChat replace for
- * {@link com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse} <br />
+ * {@link com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse} <br>
  * 
- * examples: <br />
+ * examples: <br>
  * 
- * {"errcode":40029,"errmsg":"invalid code"} <br />
+ * {"errcode":40029,"errmsg":"invalid code"} <br>
  * 
- * {"errcode":40030,"errmsg":"invalid refresh_token"}<br />
+ * {"errcode":40030,"errmsg":"invalid refresh_token"}<br>
  * 
  * @author jackiea
  */

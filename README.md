@@ -1,6 +1,6 @@
-# youkol-support-scribejava
+# Youkol :: scribejava-support
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.youkol.support.scribejava/scribejava-support/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.youkol.support.scribejava/scribejava-support)
-[![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/com.youkol.support.scribejava/scribejava-support?server=https%3A%2F%2Foss.sonatype.org)](https://oss.sonatype.org/content/repositories/snapshots/com/youkol/support/kaptcha/scribejava-support/)
+[![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/com.youkol.support.scribejava/scribejava-support?server=https%3A%2F%2Foss.sonatype.org)](https://oss.sonatype.org/content/repositories/snapshots/com/youkol/support/scribejava/scribejava-support/)
 [![License](https://img.shields.io/badge/license-apache-brightgreen)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 A simple scribejava extension library.

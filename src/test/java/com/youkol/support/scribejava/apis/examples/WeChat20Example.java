@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.youkol.scribejava.apis.examples;
+package com.youkol.support.scribejava.apis.examples;
 
 import java.io.IOException;
 import java.util.Random;
@@ -26,19 +26,20 @@ import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
-import com.youkol.scribejava.apis.QQApi20;
+import com.youkol.support.scribejava.apis.WeChatApi20;
+import com.youkol.support.scribejava.apis.wechat.WeChatConstants;
+import com.youkol.support.scribejava.apis.wechat.WeChatOAuth2AccessToken;
 
 /**
  * 
  * @author jackiea
  */
-public class QQApi20Example {
+public class WeChat20Example {
 
-    private static final String NETWORK_NAME = "QQ";
-    private static final String PROTECTED_RESOURCE_URL = "https://graph.qq.com/oauth2.0/me";
-    // private static final String PROTECTED_RESOURCE_URL = "https://graph.qq.com/user/get_user_info";
+    private static final String NETWORK_NAME = "WeChat";
+    private static final String PROTECTED_RESOURCE_URL = "https://api.weixin.qq.com/sns/userinfo";
 
-    private QQApi20Example() {
+    private WeChat20Example() {
 
     }
 
@@ -46,14 +47,15 @@ public class QQApi20Example {
         // Replace these with your own api key and secret
         final String apiKey = "your apikey";
         final String apiSecret = "your apiSecret";
-        final String callback = "http://118.190.69.69/qq/callback";
-        final String defaultScope = "get_user_info";
+        final String callback = "http://118.190.69.69/wechat/callback";
+        final String scope = "snsapi_login";
+        // final String scope = "snsapi_userinfo";
         final String state = "state_" + new Random().nextInt(999_999);
         final OAuth20Service service = new ServiceBuilder(apiKey)
                 .apiSecret(apiSecret)
                 .callback(callback)
-                .defaultScope(defaultScope)
-                .build(QQApi20.instance());
+                .defaultScope(scope)
+                .build(WeChatApi20.instance());
 
         final Scanner in = new Scanner(System.in);
 
@@ -101,6 +103,8 @@ public class QQApi20Example {
         // Now let's go and ask for a protected resource!
         System.out.println("Now we're going to access a protected resource...");
         final OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
+        request.addParameter(WeChatConstants.OPEN_ID, ((WeChatOAuth2AccessToken) accessToken).getOpenId());
+        request.addParameter(WeChatConstants.LANG, "zh_CN");
         service.signRequest(accessToken, request);
         final Response response = service.execute(request);
         System.out.println("Got it! Lets see what we found...");

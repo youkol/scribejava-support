@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.youkol.scribejava.apis.service;
+package com.youkol.support.scribejava.apis.service;
 
 import java.io.OutputStream;
 
@@ -23,7 +23,7 @@ import com.github.scribejava.core.httpclient.HttpClientConfig;
 import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.oauth.AccessTokenRequestParams;
 import com.github.scribejava.core.oauth.OAuth20Service;
-import com.youkol.scribejava.apis.wechat.WeChatConstants;
+import com.youkol.support.scribejava.apis.wechat.WeChatConstants;
 
 /**
  * 

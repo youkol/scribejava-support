@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.youkol.scribejava.apis;
+package com.youkol.support.scribejava.apis;
 
 import java.io.OutputStream;
 import java.util.Map;
@@ -28,10 +28,10 @@ import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth2.bearersignature.BearerSignature;
 import com.github.scribejava.core.oauth2.bearersignature.BearerSignatureURIQueryParameter;
 import com.github.scribejava.core.oauth2.clientauthentication.ClientAuthentication;
-import com.youkol.scribejava.apis.service.WeChatOAuth20Service;
-import com.youkol.scribejava.apis.wechat.WeChatConstants;
-import com.youkol.scribejava.apis.wechat.WeChatAccessTokenJsonExtractor;
-import com.youkol.scribejava.apis.wechat.WeChatRequestBodyAuthenticationScheme;
+import com.youkol.support.scribejava.apis.service.WeChatOAuth20Service;
+import com.youkol.support.scribejava.apis.wechat.WeChatAccessTokenJsonExtractor;
+import com.youkol.support.scribejava.apis.wechat.WeChatConstants;
+import com.youkol.support.scribejava.apis.wechat.WeChatRequestBodyAuthenticationScheme;
 
 /**
  * WeChat OAuth 2.0 api.

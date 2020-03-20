@@ -13,26 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.youkol.scribejava.apis.wechat;
+package com.youkol.support.scribejava.apis.qq;
 
 import com.github.scribejava.core.model.OAuthConstants;
 
 /**
- * This class contains OAuth constants, Custom for WeChat.
+ * This class contains OAuth constants, Custom for QQ.
  * 
  * @author jackiea
  */
-public interface WeChatConstants extends OAuthConstants {
-    
-    // WeChat's client_id is called appid and client_secret is called secret.
-    String CLIENT_ID = "appid";
-
-    String CLIENT_SECRET = "secret";
-
-    String LANG = "lang";
+public interface QQConstants extends OAuthConstants {
 
     String OPEN_ID = "openid";
 
-    String UNION_ID = "unionid";
-    
+    String OAUTH_CONSUMER_KEY = "oauth_consumer_key";
+
+    String OAUTH_CONSUMER_SECRET = "oauth_consumer_secret";
+
+
 }

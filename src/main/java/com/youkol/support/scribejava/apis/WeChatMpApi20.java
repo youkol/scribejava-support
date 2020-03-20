@@ -13,22 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.youkol.scribejava.apis.qq;
-
-import com.github.scribejava.core.model.OAuthConstants;
+package com.youkol.support.scribejava.apis;
 
 /**
- * This class contains OAuth constants, Custom for QQ.
+ * WeChat OAuth 2.0 api. For WeChat Official Account.
  * 
  * @author jackiea
  */
-public interface QQConstants extends OAuthConstants {
+public class WeChatMpApi20 extends WeChatApi20 {
 
-    String OPEN_ID = "openid";
+    protected WeChatMpApi20() {
+    }
 
-    String OAUTH_CONSUMER_KEY = "oauth_consumer_key";
+    private static class InstanceHolder {
+        private static final WeChatMpApi20 INSTANCE = new WeChatMpApi20();
+    }
 
-    String OAUTH_CONSUMER_SECRET = "oauth_consumer_secret";
+    public static WeChatMpApi20 instance() {
+        return InstanceHolder.INSTANCE;
+    }
 
-
+    @Override
+    protected String getAuthorizationBaseUrl() {
+        return "https://open.weixin.qq.com/connect/oauth2/authorize";
+    }
 }

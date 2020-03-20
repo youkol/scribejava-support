@@ -13,6 +13,10 @@ import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 import com.youkol.scribejava.apis.QQApi20;
 
+/**
+ * 
+ * @author jackiea
+ */
 public class QQApi20Example {
 
     private static final String NETWORK_NAME = "QQ";
@@ -28,13 +32,12 @@ public class QQApi20Example {
         final String apiKey = "your apikey";
         final String apiSecret = "your apiSecret";
         final String callback = "http://118.190.69.69/qq/callback";
-        final String scope = "get_user_info";
+        final String defaultScope = "get_user_info";
         final String state = "state_" + new Random().nextInt(999_999);
         final OAuth20Service service = new ServiceBuilder(apiKey)
                 .apiSecret(apiSecret)
                 .callback(callback)
-                .scope(scope)
-                .state(state)
+                .defaultScope(defaultScope)
                 .build(QQApi20.instance());
 
         final Scanner in = new Scanner(System.in);
@@ -44,7 +47,7 @@ public class QQApi20Example {
 
         // Obtain the Authorization URL 
         System.out.println("Fetching the Authorization URL...");
-        final String authorizationUrl = service.getAuthorizationUrl();
+        final String authorizationUrl = service.getAuthorizationUrl(state);
         System.out.println("Got the Authorization URL!");
         System.out.println("Now go and authorize ScribeJava here:");
         System.out.println(authorizationUrl);

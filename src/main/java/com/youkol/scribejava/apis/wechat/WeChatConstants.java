@@ -4,6 +4,8 @@ import com.github.scribejava.core.model.OAuthConstants;
 
 /**
  * This class contains OAuth constants, Custom for WeChat.
+ * 
+ * @author jackiea
  */
 public interface WeChatConstants extends OAuthConstants {
     

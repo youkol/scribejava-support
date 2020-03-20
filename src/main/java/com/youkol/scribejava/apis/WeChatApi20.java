@@ -10,12 +10,13 @@ import com.github.scribejava.core.httpclient.HttpClientConfig;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.model.ParameterList;
 import com.github.scribejava.core.model.Verb;
-import com.github.scribejava.core.oauth.OAuth20Service;
 import com.github.scribejava.core.oauth2.bearersignature.BearerSignature;
 import com.github.scribejava.core.oauth2.bearersignature.BearerSignatureURIQueryParameter;
+import com.github.scribejava.core.oauth2.clientauthentication.ClientAuthentication;
 import com.youkol.scribejava.apis.service.WeChatOAuth20Service;
 import com.youkol.scribejava.apis.wechat.WeChatConstants;
-import com.youkol.scribejava.apis.wechat.WeChatJsonTokenExtractor;
+import com.youkol.scribejava.apis.wechat.WeChatAccessTokenJsonExtractor;
+import com.youkol.scribejava.apis.wechat.WeChatRequestBodyAuthenticationScheme;
 
 /**
  * WeChat OAuth 2.0 api.
@@ -71,23 +72,31 @@ public class WeChatApi20 extends DefaultApi20 {
 
         parameters = parameters.sort();
 
-        return parameters.appendTo(getAuthorizationBaseUrl());
+        String authorizationUrl = parameters.appendTo(getAuthorizationBaseUrl());
+        return authorizationUrl + "#wechat_redirect";
     }
 
-    public OAuth20Service createService(String apiKey, String apiSecret, String callback, String scope,
-            OutputStream debugStream, String state, String responseType, String userAgent,
-            HttpClientConfig httpClientConfig, HttpClient httpClient) {
-        return new WeChatOAuth20Service(this, apiKey, apiSecret, callback, scope, 
-                state, responseType, userAgent, httpClientConfig, httpClient);
+    @Override
+    public WeChatOAuth20Service createService(String apiKey, String apiSecret, String callback, String defaultScope,
+            String responseType, OutputStream debugStream, String userAgent, HttpClientConfig httpClientConfig,
+            HttpClient httpClient) {
+        return new WeChatOAuth20Service(this, apiKey, apiSecret, callback, defaultScope, responseType, debugStream,
+                userAgent, httpClientConfig, httpClient);
     }
 
+    @Override
     public BearerSignature getBearerSignature() {
         return BearerSignatureURIQueryParameter.instance();
     }
 
     @Override
+    public ClientAuthentication getClientAuthentication() {
+        return WeChatRequestBodyAuthenticationScheme.instance();
+    }
+
+    @Override
     public TokenExtractor<OAuth2AccessToken> getAccessTokenExtractor() {
-        return WeChatJsonTokenExtractor.instance();
+        return WeChatAccessTokenJsonExtractor.instance();
     }
 
     @Override

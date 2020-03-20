@@ -15,6 +15,10 @@ import com.youkol.scribejava.apis.WeChatApi20;
 import com.youkol.scribejava.apis.wechat.WeChatConstants;
 import com.youkol.scribejava.apis.wechat.WeChatOAuth2AccessToken;
 
+/**
+ * 
+ * @author jackiea
+ */
 public class WeChat20Example {
 
     private static final String NETWORK_NAME = "WeChat";
@@ -35,8 +39,7 @@ public class WeChat20Example {
         final OAuth20Service service = new ServiceBuilder(apiKey)
                 .apiSecret(apiSecret)
                 .callback(callback)
-                .scope(scope)
-                .state(state)
+                .defaultScope(scope)
                 .build(WeChatApi20.instance());
 
         final Scanner in = new Scanner(System.in);
@@ -46,7 +49,7 @@ public class WeChat20Example {
 
         // Obtain the Authorization URL 
         System.out.println("Fetching the Authorization URL...");
-        final String authorizationUrl = service.getAuthorizationUrl();
+        final String authorizationUrl = service.getAuthorizationUrl(state);
         System.out.println("Got the Authorization URL!");
         System.out.println("Now go and authorize ScribeJava here:");
         System.out.println(authorizationUrl);

@@ -1,10 +1,7 @@
 package com.youkol.scribejava.apis;
 
-import java.util.Map;
-
 /**
- * WeChat OAuth 2.0 api.
- * For WeChat Official Account.
+ * WeChat OAuth 2.0 api. For WeChat Official Account.
  * 
  * @author jackiea
  */
@@ -24,12 +21,5 @@ public class WeChatMpApi20 extends WeChatApi20 {
     @Override
     protected String getAuthorizationBaseUrl() {
         return "https://open.weixin.qq.com/connect/oauth2/authorize";
-    }
-
-    @Override
-    public String getAuthorizationUrl(String responseType, String apiKey, String callback, String scope, String state,
-            Map<String, String> additionalParams) {
-        String authorizationUrl = super.getAuthorizationUrl(responseType, apiKey, callback, scope, state, additionalParams);
-        return authorizationUrl + "#wechat_redirect";
     }
 }

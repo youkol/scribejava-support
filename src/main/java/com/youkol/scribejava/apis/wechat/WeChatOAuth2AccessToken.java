@@ -4,6 +4,10 @@ import java.util.Objects;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
+/**
+ * 
+ * @author jackiea
+ */
 public class WeChatOAuth2AccessToken extends OAuth2AccessToken {
 
     private static final long serialVersionUID = 1L;

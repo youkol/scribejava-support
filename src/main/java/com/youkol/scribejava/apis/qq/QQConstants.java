@@ -4,6 +4,8 @@ import com.github.scribejava.core.model.OAuthConstants;
 
 /**
  * This class contains OAuth constants, Custom for QQ.
+ * 
+ * @author jackiea
  */
 public interface QQConstants extends OAuthConstants {
 

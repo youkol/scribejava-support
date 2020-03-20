@@ -16,7 +16,7 @@
 
   <name>Youkol :: scribejava-support</name>
   <description>A simple scribejava extension library.</description>
-  <url>https://github.com/youkol/youkol-support-scribejava</url>
+  <url>https://github.com/youkol/scribejava-support</url>
 
   <inceptionYear>2016</inceptionYear>
   <organization>
@@ -44,15 +44,15 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/youkol/youkol-support-scribejava.git</connection>
-    <developerConnection>scm:git:git@github.com:youkol/youkol-support-scribejava.git</developerConnection>
-    <url>https://github.com/youkol/youkol-support-scribejava</url>
+    <connection>scm:git:git://github.com/youkol/scribejava-support.git</connection>
+    <developerConnection>scm:git:git@github.com:youkol/scribejava-support.git</developerConnection>
+    <url>https://github.com/youkol/scribejava-support</url>
     <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
     <system>GitHub Issue Management</system>
-    <url>https://github.com/youkol/youkol-support-scribejava/issues</url>
+    <url>https://github.com/youkol/scribejava-support/issues</url>
   </issueManagement>
 
   <properties>

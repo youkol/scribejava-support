@@ -47,7 +47,7 @@ public class WeChat20Example {
         // Replace these with your own api key and secret
         final String apiKey = "your apikey";
         final String apiSecret = "your apiSecret";
-        final String callback = "http://118.190.69.69/wechat/callback";
+        final String callback = "http://127.0.0.1/wechat/callback";
         final String scope = "snsapi_login";
         // final String scope = "snsapi_userinfo";
         final String state = "state_" + new Random().nextInt(999_999);

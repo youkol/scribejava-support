@@ -37,6 +37,7 @@ import com.youkol.support.scribejava.apis.wechat.WeChatRequestBodyAuthentication
  * WeChat OAuth 2.0 api.
  * 
  * @author jackiea
+ * @see <a href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html">微信开放文档 - 网站应用</a>
  */
 public class WeChatApi20 extends DefaultApi20 {
 

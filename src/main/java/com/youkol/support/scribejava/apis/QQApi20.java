@@ -24,6 +24,7 @@ import com.github.scribejava.core.oauth2.bearersignature.BearerSignatureURIQuery
  * QQ OAuth 2.0 api.
  * 
  * @author jackiea
+ * @see <a href="https://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3">腾讯开放文档 - 网站接入</a>
  */
 public class QQApi20 extends DefaultApi20 {
 

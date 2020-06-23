@@ -19,6 +19,7 @@ package com.youkol.support.scribejava.apis;
  * WeChat OAuth 2.0 api. For WeChat Official Account.
  * 
  * @author jackiea
+ * @see <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html">微信开放文档 - 网页授权</a>
  */
 public class WeChatMpApi20 extends WeChatApi20 {
 

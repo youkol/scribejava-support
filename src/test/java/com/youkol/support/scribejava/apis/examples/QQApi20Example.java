@@ -46,7 +46,7 @@ public class QQApi20Example {
         // Replace these with your own api key and secret
         final String apiKey = "your apikey";
         final String apiSecret = "your apiSecret";
-        final String callback = "http://118.190.69.69/qq/callback";
+        final String callback = "http://127.0.0.1/qq/callback";
         final String defaultScope = "get_user_info";
         final String state = "state_" + new Random().nextInt(999_999);
         final OAuth20Service service = new ServiceBuilder(apiKey)

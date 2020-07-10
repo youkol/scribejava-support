@@ -19,6 +19,9 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractor;
+import com.github.scribejava.core.model.OAuthConstants;
+import com.github.scribejava.core.model.Response;
+import com.github.scribejava.core.utils.Preconditions;
 
 /**
  * Non standard WeChat Extractor.
@@ -41,6 +44,17 @@ public class WeChatAccessTokenJsonExtractor extends OAuth2AccessTokenJsonExtract
     }
 
     @Override
+    public WeChatOAuth2AccessToken extract(Response response) throws IOException {
+        final String body = response.getBody();
+        Preconditions.checkEmptyString(body, "Response body is incorrect. Can't extract a token from an empty string");
+
+        if (response.getCode() != 200) {
+            generateError(body);
+        }
+        return createToken(body);
+    }
+
+    @Override
     public void generateError(String rawResponse) throws IOException {
         final JsonNode errorNode = OAuth2AccessTokenJsonExtractor.OBJECT_MAPPER.readTree(rawResponse);
         final JsonNode errorCode = errorNode.get("errcode");
@@ -48,6 +62,25 @@ public class WeChatAccessTokenJsonExtractor extends OAuth2AccessTokenJsonExtract
 
         throw new WeChatAccessTokenErrorResponse(errorCode == null ? null : errorCode.asText(), 
             errorMessage == null ? null : errorMessage.asText(), rawResponse);
+    }
+
+    private WeChatOAuth2AccessToken createToken(String rawResponse) throws IOException {
+
+        final JsonNode response = OBJECT_MAPPER.readTree(rawResponse);
+
+        if (response.hasNonNull("errcode") || response.hasNonNull("errmsg")) {
+            generateError(rawResponse);
+        }
+
+        final JsonNode expiresInNode = response.get("expires_in");
+        final JsonNode refreshToken = response.get(OAuthConstants.REFRESH_TOKEN);
+        final JsonNode scope = response.get(OAuthConstants.SCOPE);
+        final JsonNode tokenType = response.get("token_type");
+
+        return createToken(extractRequiredParameter(response, OAuthConstants.ACCESS_TOKEN, rawResponse).asText(),
+                tokenType == null ? null : tokenType.asText(), expiresInNode == null ? null : expiresInNode.asInt(),
+                refreshToken == null ? null : refreshToken.asText(), scope == null ? null : scope.asText(), response,
+                rawResponse);
     }
 
     @Override

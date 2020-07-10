@@ -58,7 +58,7 @@ public class WeChatAccessTokenJsonExtractor extends OAuth2AccessTokenJsonExtract
     public void generateError(String rawResponse) throws IOException {
         final JsonNode errorNode = OAuth2AccessTokenJsonExtractor.OBJECT_MAPPER.readTree(rawResponse);
         final JsonNode errorCode = errorNode.get("errcode");
-        final JsonNode errorMessage = errorCode.get("errmsg");
+        final JsonNode errorMessage = errorNode.get("errmsg");
 
         throw new WeChatAccessTokenErrorResponse(errorCode == null ? null : errorCode.asText(), 
             errorMessage == null ? null : errorMessage.asText(), rawResponse);
